@@ -38,11 +38,16 @@ download_game_metadata <- function(update = FALSE) {
 
     extract <- function(x, pattern) {
         x <- str_flatten(x, " ")
+        link_pipe_token <- "MMMMMMMMM" # Something that shouldn't exist in text naturally
+        x <- str_replace(x,
+                         "(\\[\\[[^|]*)[|]([^|]*\\]\\])",
+                         paste0("\\1", link_pipe_token, "\\2"))
         pat <- str_glue("[|] *{pattern} *[|][^|]*[|]", pattern = pattern)
         str <- as.character(na.omit(str_extract(x, pattern = pat)))
         if (length(str) == 0) return(NA_character_)
         str <- str_split(str, "\\|")[[1]][3]
         str <- str_trim(str)
+        str <- str_replace(str, link_pipe_token, "|")
         str
     }
 
