@@ -1,0 +1,21 @@
+Package: ppwicker
+Title: Functions to interact with piecepack wiki
+Version: 0.1.0-1
+Authors@R: 
+    c(person("Trevor", "Davis", , email = "trevor.l.davis@gmail.com", role = c("aut", "cre")),
+      person("Alex", "Schroeder", role = "aut", comment = "Uses `wikiput.pl`"))
+Description: Functions to interact with piecepack wiki <https://ludism.org/ppwiki/>.  Can download piecepack game metadata and update the Games wiki page.
+License: GPL-3
+Depends:
+    R (>= 4.0.0)
+Imports:
+    purrr,
+    stats,
+    stringr,
+    tibble,
+    tools,
+    utils,
+    xml2
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
