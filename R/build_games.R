@@ -25,7 +25,7 @@ build_games <- function(update = FALSE) {
 }
 
 games_row <- function(name, designer, bits, ...) {
-    str_glue("| {name} | {designer} | {bits} |")
+    str_glue('| ["{name}"] | {designer} | {bits} |')
 }
 
 games_preamble <- '
