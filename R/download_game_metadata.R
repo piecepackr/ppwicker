@@ -62,6 +62,8 @@ download_game_metadata <- function(update = FALSE) {
     bits <- sapply(texts, extract, pattern = "Required Bits")
     df$bits <- ifelse(is.na(equipment), bits, equipment)
 
+    df <- df[order(tolower(df$name)), ]
+
     csv_file <- file.path(cache_dir, "games.csv")
     write.csv(df, csv_file, na = "", row.names = FALSE)
 
