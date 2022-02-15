@@ -32,7 +32,7 @@ games_preamble <- '
 **Note:** This is an alpha test for a new computer-generated [[Games]] page.
 This page will eventually be deleted.
 
-**Note:** This page is computer-generated from individual game metadata and manually uploaded to the wiki.
+**Note:** This page is [[https://github.com/piecepackr/ppwicker | computer-generated from individual game metadata]]  and manually uploaded to the wiki.
 If outdated or any errors please let me know and I\'ll take a look.  --TrevorLDavis
 
 For a complete list of games on the wiki, check the CategoryGame page.
