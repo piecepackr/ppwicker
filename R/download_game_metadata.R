@@ -34,7 +34,7 @@ download_game_metadata <- function(update = FALSE) {
     }
 
     texts <- lapply(targets, readLines)
-    names(texts) <- basename(raw_links)
+    names(texts) <- utils::URLdecode(basename(raw_links))
 
     extract <- function(x, pattern) {
         x <- str_flatten(x, " ")
