@@ -2,14 +2,15 @@
 % Please edit documentation in R/update_games.R
 \name{update_games}
 \alias{update_games}
-\title{Update Games wiki page}
+\title{Update Games wiki page(s)}
 \usage{
 update_games(
   update = FALSE,
   minor = FALSE,
   summary = "Update Games page",
   username = getOption("ppwicker_username"),
-  password = getOption("ppwicker_password")
+  password = getOption("ppwicker_password"),
+  games = NULL
 )
 }
 \arguments{
@@ -21,8 +22,18 @@ update_games(
 
 \item{username}{Piecepack wiki username}
 
-\item{password}{Piecepack wiki password (optional)}
+\item{password}{Piecepack wiki password}
+
+\item{games}{If \code{NULL} (default) we update the "Games" wiki page.
+Otherwise we update the wiki page for each game in \code{games}
+using the wiki markup in the \code{txt} subdirectory of
+\code{tools::R_user_dir("ppwicker", "cache")}.
+Name needs to be the same as the wiki article URL.}
 }
 \description{
-\code{update_games()} updates piecepack wiki Games page.
+\code{update_games()} updates piecepack wiki Games page(s) using \code{wikiput.pl}.
+}
+\details{
+You may need a wiki admin password to use this function,
+any attempt at using this function with a \code{NULL} password failed.
 }
