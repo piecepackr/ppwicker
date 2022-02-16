@@ -41,21 +41,6 @@ download_game_metadata <- function(update = FALSE, games = NULL) {
     texts <- lapply(targets, readLines)
     names(texts) <- utils::URLdecode(basename(raw_links))
 
-    extract <- function(x, pattern) {
-        x <- str_flatten(x, " ")
-        link_pipe_token <- "MMMMMMMMM" # Something that shouldn't exist in text naturally
-        x <- str_replace(x,
-                         "(\\[\\[[^|]*)[|]([^|]*\\]\\])",
-                         paste0("\\1", link_pipe_token, "\\2"))
-        pat <- str_glue("[|] *{pattern} *[|][^|]*[|]", pattern = pattern)
-        str <- as.character(na.omit(str_extract(x, pattern = pat)))
-        if (length(str) == 0) return(NA_character_)
-        str <- str_split(str, "\\|")[[1]][3]
-        str <- str_trim(str)
-        str <- str_replace(str, link_pipe_token, "|")
-        str
-    }
-
     df <- tibble::tibble(name = names(texts), url=links)
     df$players <- sapply(texts, extract, pattern = "Players")
     df$length <- sapply(texts, extract, pattern = "Length")
@@ -71,4 +56,19 @@ download_game_metadata <- function(update = FALSE, games = NULL) {
     write.csv(df, csv_file, na = "", row.names = FALSE)
 
     df
+}
+
+extract <- function(x, pattern) {
+    x <- str_flatten(x, " ")
+    link_pipe_token <- "MMMMMMMMM" # Something that shouldn't exist in text naturally
+    x <- str_replace(x,
+                     "(\\[\\[[^|]*)[|]([^|]*\\]\\])",
+                     paste0("\\1", link_pipe_token, "\\2"))
+    pat <- str_glue("[|] *{pattern} *[|][^|]*[|]", pattern = pattern)
+    str <- as.character(na.omit(str_extract(x, pattern = pat)))
+    if (length(str) == 0) return(NA_character_)
+    str <- str_split(str, "\\|")[[1]][3]
+    str <- str_trim(str)
+    str <- str_replace(str, link_pipe_token, "|")
+    str
 }
