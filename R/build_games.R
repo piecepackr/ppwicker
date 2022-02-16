@@ -14,7 +14,7 @@ build_games <- function(update = FALSE) {
     creole_file <- file.path(tools::R_user_dir("ppwicker", "cache"),
                              "games.creole")
 
-    header <- "|=Games|=Designer / Adapter|=Required Bits|"
+    header <- "|=Games|=Designer / Adapter|=Equipment Required|"
     rows <- purrr::pmap(df, games_row)
 
     text <- c(games_preamble, header, unlist(rows))
