@@ -34,6 +34,7 @@ update_games <- function(update = FALSE,
                 username = username, password = password)
     } else {
         for (game in games) {
+            Sys.sleep(1) # don't hit ludism.org too hard all at once
             target <- paste0("https://ludism.org/ppwiki/", game)
             cache_dir <- tools::R_user_dir("ppwicker", "cache")
             file <- file.path(cache_dir, "txt", game)
@@ -53,6 +54,6 @@ wikiput <- function(text, target, minor = FALSE, summary = NULL, username = NULL
     if (!is.null(summary)) args <- c(args, "-s", shQuote(summary))
     if (!is.null(username)) args <- c(args, "-u", username)
     if (!is.null(password)) args <- c(args, "-p", password)
-    args <- c(args, target)
+    args <- c(args, shQuote(target))
     system2(command, args, input = text)
 }

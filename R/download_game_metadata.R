@@ -63,9 +63,7 @@ download_game_metadata <- function(update = FALSE, games = NULL) {
     df$version <- sapply(texts, extract, pattern = "Version")
     df$version_date <- sapply(texts, extract, pattern = "Version Date")
     df$license <- sapply(texts, extract, pattern = "Licen[cs]e")
-    equipment <- sapply(texts, extract, pattern = "Equipment Required")
-    bits <- sapply(texts, extract, pattern = "Required Bits")
-    df$bits <- ifelse(is.na(equipment), bits, equipment)
+    df$bits <- sapply(texts, extract, pattern = "Equipment Required")
 
     df <- df[order(tolower(df$name)), ]
 
