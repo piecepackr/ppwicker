@@ -4,10 +4,13 @@
 \alias{download_game_metadata}
 \title{Download piecepack wiki game metadata}
 \usage{
-download_game_metadata(update = FALSE)
+download_game_metadata(update = FALSE, games = NULL)
 }
 \arguments{
 \item{update}{If already downloaded previously, should we download again?}
+
+\item{games}{Which games to download metadata for.
+If \code{NULL} (the default) download all of them.}
 }
 \value{
 Returns a (tibble) data frame of piecepack wiki game metadata.
