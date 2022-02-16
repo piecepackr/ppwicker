@@ -11,7 +11,7 @@
 #' @export
 download_game_metadata <- function(update = FALSE, games = NULL) {
     cache_dir <- tools::R_user_dir("ppwicker", "cache")
-    if (update) unlink(cache_dir)
+    if (update && is.null(games)) unlink(cache_dir)
     dir.create(cache_dir, showWarnings = FALSE)
 
     txt_dir <- file.path(cache_dir, "txt")
