@@ -27,7 +27,7 @@ update_games <- function(update = FALSE,
     stopifnot(!is.null(username))
 
     if (is.null(games)) {
-        target <- paste0("https://ludism.org/ppwiki/", "GamesAlpha")
+        target <- paste0("https://ludism.org/ppwiki/", "Games")
         text <- build_games(update = update)
         wikiput(text, target,
                 minor = minor, summary = summary,

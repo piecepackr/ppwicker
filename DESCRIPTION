@@ -1,6 +1,6 @@
 Package: ppwicker
 Title: Functions to interact with piecepack wiki
-Version: 0.1.0-10
+Version: 0.1.1
 Authors@R: 
     c(person("Trevor", "Davis", , email = "trevor.l.davis@gmail.com", role = c("aut", "cre")),
       person("Alex", "Schroeder", role = "aut", comment = "Uses `wikiput.pl`"))
