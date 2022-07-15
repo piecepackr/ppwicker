@@ -1,5 +1,5 @@
-ppwicker v0.1
--------------
+ppwicker v0.1.1
+---------------
 
 * `download_game_metadata()` downloads game metadata from the piecepack wiki
 * `build_games()` builds a candidate replacement for https://ludism.org/ppwiki/Games

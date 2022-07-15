@@ -1,8 +1,9 @@
 Package: ppwicker
 Title: Functions to interact with piecepack wiki
-Version: 0.1.1
-Authors@R: 
-    c(person("Trevor", "Davis", , email = "trevor.l.davis@gmail.com", role = c("aut", "cre")),
+Version: 0.1.2
+Authors@R: c(person("Trevor L", "Davis", role=c("aut", "cre"), 
+             email="trevor.l.davis@gmail.com",
+             comment = c(ORCID = "0000-0001-6341-4639")),
       person("Alex", "Schroeder", role = "aut", comment = "Uses `wikiput.pl`"))
 Description: Functions to interact with piecepack wiki <https://ludism.org/ppwiki/>.  Can download piecepack game metadata and update the Games wiki page.
 License: GPL-3
